@@ -1,22 +1,25 @@
 import {
-  Container,
-  InputBox,
+  InputWrapper,
   GreetingText,
   UserInput,
   RegisterButton,
-} from "./Register.elements";
+  SubmitForm,
+} from "./Register.elements.js";
 
 function Register() {
   return (
     <>
-      <Container>
-        <InputBox>
-          <GreetingText></GreetingText>
-          <UserInput />
-          <UserInput />
-          <RegisterButton> Register </RegisterButton>
-        </InputBox>
-      </Container>
+      <SubmitForm method="POST">
+        <InputWrapper>
+          <GreetingText> Register </GreetingText>
+          <UserInput placeholder="Digite seu nome de usuário" />
+          <UserInput placeholder="Digite seu e-mail" />
+          <UserInput placeholder="Digite sua senha" />
+          <UserInput placeholder="Confirme sua senha" />
+          <br />
+          <RegisterButton type="submit"> Register </RegisterButton>
+        </InputWrapper>
+      </SubmitForm>
     </>
   );
 }
