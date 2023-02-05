@@ -44,7 +44,7 @@ export const UserInput = styled.input`
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 `;
 
-export const RegisterButton = styled.button`
+export const LoginButton = styled.button`
   text-align: center;
   font-size: medium;
   margin-top: 30px;
