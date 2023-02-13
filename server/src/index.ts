@@ -8,19 +8,22 @@ const PORT = 5000 || process.env.PORT
 config();
 
 const app = express();
+app.use(cors({
+  origin: "*"
+}))
 app.use(express.json());
 app.use(express.urlencoded());
 mongoose.set('strictQuery', false)
 
 app.post("/register", async (req: Request, res: Response) =>{
 
-  const infoUser = req.body;
+  const userInput = req.body;
 
   const newUser = new UserModel({
-    username: infoUser.username,
-    email: infoUser.email,
-    password: infoUser.password,
-    passwordCheck: infoUser.passwordCheck
+    username: userInput.username,
+    email: userInput.email,
+    password: userInput.password,
+    passwordCheck: userInput.passwordCheck
   })
 
   const createdUser = await newUser.save().then(() => console.log("Usuário adicionado"));

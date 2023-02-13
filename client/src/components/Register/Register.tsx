@@ -16,7 +16,7 @@ interface Inputs {
 }
 
 function Register() {
-  const [inputText, setInputText] = useState<Inputs>({
+  const [userInput, setUserInput] = useState<Inputs>({
     username: "",
     email: "",
     password: "",
@@ -28,9 +28,12 @@ function Register() {
 
     await fetch("http://localhost:5000/register", {
       method: "POST",
-      body: JSON.stringify({
-        inputText,
-      }),
+      body: JSON.stringify({ 
+        username: userInput.username,
+        email: userInput.email,
+        password: userInput.password,
+        passwordCheck: userInput.passwordCheck,
+       }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -45,34 +48,34 @@ function Register() {
           <UserInput
             placeholder="Digite seu nome de usuário"
             type="text"
-            value={inputText.username as string}
+            value={userInput.username as string}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setInputText({ ...inputText, username: e.target.value as string })
+              setUserInput({ ...userInput, username: e.target.value as string })
             }
           />
           <UserInput
             placeholder="Digite seu e-mail"
             type="email"
-            value={inputText.email as string}
+            value={userInput.email as string}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setInputText({ ...inputText, email: e.target.value as string })
+              setUserInput({ ...userInput, email: e.target.value as string })
             }
           />
           <UserInput
             placeholder="Digite sua senha"
             type="password"
-            value={inputText.password as string}
+            value={userInput.password as string}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setInputText({ ...inputText, password: e.target.value as string })
+              setUserInput({ ...userInput, password: e.target.value as string })
             }
           />
           <UserInput
             placeholder="Confirme sua senha"
             type="password"
-            value={inputText.passwordCheck as string}
+            value={userInput.passwordCheck as string}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setInputText({
-                ...inputText,
+              setUserInput({
+                ...userInput,
                 passwordCheck: e.target.value as string,
               })
             }
