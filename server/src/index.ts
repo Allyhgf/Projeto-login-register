@@ -8,8 +8,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
 
-app.get("/", (req: Request, res: Response) =>{
-  res.send("<h1> Hello World! </h1>")
+app.post("/", (req: Request, res: Response) =>{ // Register
+  const infosRegistro = req.body
+  
 })
 
 app.listen(PORT, () => {
