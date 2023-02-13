@@ -23,8 +23,18 @@ function Register() {
     passwordCheck: "",
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    await fetch("http://localhost:5000/register", {
+      method: "POST",
+      body: JSON.stringify({
+        inputText,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   };
 
   return (

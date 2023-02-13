@@ -1,11 +1,10 @@
 import mongoose from 'mongoose'
-import * as Email from 'mongoose-type-email';
 
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema ({
   username: String,
-  email: Email,
+  email: String,
   password: String,
   passwordCheck: String,
 })
